@@ -1,0 +1,13 @@
+application/cache/*
+bower_components/
+cgi-bin/
+#/vendor/
+tmp/
+/nbproject/
+.idea/*
+composer.lock
+/tests/tests/
+/tests/results/
+/views-cache/
+
+
