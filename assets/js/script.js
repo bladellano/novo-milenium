@@ -1,35 +1,35 @@
 
 $(function(){
 
+	$('.carousel-control-next').click(function(){
+		$('.carousel').carousel('next');
+	});
 
-$('.carousel-control-next').click(function(){
-	$('.carousel').carousel('next');
-});
+	$('.carousel-control-prev').click(function(){
+		$('.carousel').carousel('prev');
+	});
 
-$('.carousel-control-prev').click(function(){
-	$('.carousel').carousel('prev');
-});
+	/* Expande e recolhe o conteudo da trajetória */
+	$('.btn-read-more').click(function() {
 
+		$('.row.about.trajectory').toggleClass("about-collapse");  
 
+		if($('.row.about.trajectory').hasClass("about-collapse")){
+			$('.btn-read-more').html('Leia mais').prepend('<i class="fas fa-chevron-down"></i> ');
+		} else {
+			$('.btn-read-more').html('Guardar').prepend('<i class="fas fa-chevron-up"></i> ');
+		}
+	});
 
-/* Expande e recolhe o conteudo da trajetória */
-$('.btn-read-more').click(function() {
+	/* Slick parceiros */
+	$('.slick-depositions').slick();
 
-	$('.row.about.trajectory').toggleClass("about-collapse");  
-
-	if($('.row.about.trajectory').hasClass("about-collapse")){
-		$('.btn-read-more').html('Leia mais').prepend('<i class="fas fa-chevron-down"></i> ');
-	} else {
-		$('.btn-read-more').html('Guardar').prepend('<i class="fas fa-chevron-up"></i> ');
-	}
-});
-
-/* Slick parceiros */
-$('.slick-parceiros').slick({
-	infinite: true,
-	slidesToShow: 5,
-	slidesToScroll: 3,
-		// centerMode: true,
+	/* Slick parceiros */
+	$('.slick-parceiros').slick({
+		infinite: true,
+		slidesToShow: 5,
+		slidesToScroll: 3,
+		/*centerMode: true,*/
 		responsive: [
 		{
 			breakpoint: 768,
@@ -52,16 +52,16 @@ $('.slick-parceiros').slick({
 		]
 	});
 
-/* Formulário de envio de tentatica de contato */
-$('#form-contact').submit(function(e) {
-	e.preventDefault();
+	/* Formulário de envio de tentatica de contato */
+	$('#form-contact').submit(function(e) {
+		e.preventDefault();
 
-	const data = $(this).serializeArray();
-	let val_btn = $(this).find('button').html();
+		const data = $(this).serializeArray();
+		let val_btn = $(this).find('button').html();
 
-	$.ajax({
-		url: 'send-contact.php',
-		type: 'post',
+		$.ajax({
+			url: 'send-contact.php',
+			type: 'post',
 			dataType: 'json',
 			data: data,
 			beforeSend:()=>{
@@ -78,14 +78,14 @@ $('#form-contact').submit(function(e) {
 				}
 			}
 		})
-	.always(()=> {
-		$(this).find(':input,select').prop('disabled',false);	
-		$(this).find('button').html(val_btn);
+		.always(()=> {
+			$(this).find(':input,select').prop('disabled',false);	
+			$(this).find('button').html(val_btn);
+		});
+
 	});
 
-});
-
-/* Owl carousel */
+	/* Owl carousel */
 /*	$('.owl-partners').owlCarousel({
 		loop:true,
 		margin:10,
@@ -108,7 +108,7 @@ $('#form-contact').submit(function(e) {
 
 	/* Botão que surge no rodapé p/ levar até o topo.*/
 	$(window).scroll(function(e) {
-		if ($(this).scrollTop() > 0) {
+		if ($(this).scrollTop() > window.innerHeight) {
 			$('.topo').fadeIn();
 		} else {
 			$('.topo').fadeOut();
