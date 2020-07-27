@@ -75,14 +75,14 @@ body {
     margin-left: 25%;
 }
 #quick-access ul li{
- float: left;
- width: 20%;
- text-align: center;
+   float: left;
+   width: 20%;
+   text-align: center;
 }
 #quick-access ul{
- padding:0px;
- margin:0px;
- list-style:none;
+   padding:0px;
+   margin:0px;
+   list-style:none;
 }
 #quick-access h3{
     color: var(--cor-texto-escuro);
@@ -139,14 +139,14 @@ footer ul li.efeito-hr a{
 .btn-whatsapp{
     position: fixed; 
     font-size: 44px;
-    bottom: 30px; 
-    right: 22px; 
+    bottom: 96px; 
+    right: 30px; 
     z-index: 99999;
 }
 
 .whatsapp:hover {
   text-decoration: none;
-   background-color: #00CC6A;
+  background-color: #00CC6A;
 }
 .whatsapp {
     display: flex;
@@ -158,7 +158,7 @@ footer ul li.efeito-hr a{
     padding: 12px 20px;
     border-radius: 50px;
     position: fixed;
-    bottom: 6px;
+    bottom: 60px;
     right: 20px;
     cursor: pointer;
     box-shadow: 0 1px 6px rgba(0, 0, 0, .06), 0 2px 32px rgba(0, 0, 0, .16);
@@ -339,8 +339,8 @@ footer ul li.efeito-hr a{
 }
 
 .navbar-default .container.container .navbar-nav li a {
- font-family: 'Montserrat';
- color: var(--cor-texto-claro);
+   font-family: 'Montserrat';
+   color: var(--cor-texto-claro);
 }
 
 .navbar-default .container .navbar-nav li a:hover,
@@ -378,9 +378,9 @@ footer ul li.efeito-hr a{
 }
 
 .card .card-header h5 .btn-link{
- color: var(--cor-secundaria);
- font-weight: 700;
- text-decoration: none;
+   color: var(--cor-secundaria);
+   font-weight: 700;
+   text-decoration: none;
 }
 .card .card-header{
     text-align: center;
