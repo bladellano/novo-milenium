@@ -5,7 +5,7 @@ cgi-bin/
 tmp/
 /nbproject/
 .idea/*
-composer.lock
+#composer.lock
 /tests/tests/
 /tests/results/
 /views-cache/
