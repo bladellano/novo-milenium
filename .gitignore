@@ -1,5 +1,5 @@
 application/cache/*
-bower_components/
+#bower_components/
 cgi-bin/
 #/vendor/
 tmp/
