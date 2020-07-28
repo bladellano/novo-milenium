@@ -25,9 +25,14 @@ body {
     color:var(--cor-texto-escuro);
 }
 
-/*=========================*/
-/*         CAROUSEL        */
-/*=========================*/
+/*Google Maps*/
+
+section iframe {
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+/*Carousel*/
 
 .carousel-caption {
     margin-bottom: 40px;
@@ -75,14 +80,14 @@ body {
     margin-left: 25%;
 }
 #quick-access ul li{
-   float: left;
-   width: 20%;
-   text-align: center;
+ float: left;
+ width: 20%;
+ text-align: center;
 }
 #quick-access ul{
-   padding:0px;
-   margin:0px;
-   list-style:none;
+ padding:0px;
+ margin:0px;
+ list-style:none;
 }
 #quick-access h3{
     color: var(--cor-texto-escuro);
@@ -351,8 +356,8 @@ footer ul li.efeito-hr a{
 }
 
 .navbar-default .container.container .navbar-nav li a {
- font-family: 'Montserrat';
- color: var(--cor-texto-claro);
+   font-family: 'Montserrat';
+   color: var(--cor-texto-claro);
 }
 
 .navbar-default .container .navbar-nav li a:hover,
@@ -390,9 +395,9 @@ footer ul li.efeito-hr a{
 }
 
 .card .card-header h5 .btn-link{
- color: var(--cor-secundaria);
- font-weight: 700;
- text-decoration: none;
+   color: var(--cor-secundaria);
+   font-weight: 700;
+   text-decoration: none;
 }
 .card .card-header{
     text-align: center;
@@ -434,13 +439,20 @@ header .intro-text {
     padding-bottom: 50px;
 }
 
-
 /*===========*/
 /*  CONTACT  */
 /*===========*/
 #contact{
-    margin-top: 10px;
-    margin-bottom: 20px;
+    background-image: url(../img/bg-contact.jpg);
+    background-repeat: none;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: var(--cor-texto-claro);
 }
 
 /*===========*/
