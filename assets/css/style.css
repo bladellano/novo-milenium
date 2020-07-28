@@ -88,6 +88,16 @@ body {
     color: var(--cor-texto-escuro);
     font-family: "Nunito";
 }
+#flex-quick-access {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+}
+#flex-quick-access li {
+    flex: 1 1 100px; 
+}
+
 
 
 /*================*/
@@ -197,17 +207,20 @@ footer ul li.efeito-hr a{
 /*============================*/
 /* CUSTOMIZING SLICK INDICATO */
 /*============================*/
-.slick-next.slick-arrow,
-.slick-prev.slick-arrow {
-    outline: 0;
-}
 
+/*Slick*/
+
+.slick-next:before{
+    content:'\203a';
+}
+.slick-prev:before{
+    content:'\2039';
+}
 .slick-prev:before,
 .slick-next:before {
-    font-family: "slick";
-    line-height: 1;
-    color: var(--cor-primaria);
+    color:#CCC;
     opacity: 0.90;
+    font-size: 62px;
 }
 
 /*==================*/
@@ -313,10 +326,9 @@ footer ul li.efeito-hr a{
 
 .navbar-default .container .navbar-brand {
     color: var(--cor-texto-claro);
-    font-family: 'Dosis', sans-serif;
+    /*font-family: 'Dosis', sans-serif;*/
     padding: 0px;
 }
-
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
@@ -329,18 +341,18 @@ footer ul li.efeito-hr a{
 }
 
 .navbar-default .container .navbar-toggler {
-    background-color:var(--cor-primaria);
-    border-color:var(--cor-primaria);
+    background-color:var(--cor-secundaria);
+    border-color:#364fc7;
 }
 
 .navbar-default .container .navbar-toggler:hover,
 .navbar-default .container .navbar-toggler:focus {
-    background-color:var(--cor-primaria);
+    background-color:var(--cor-secundaria);
 }
 
 .navbar-default .container.container .navbar-nav li a {
-   font-family: 'Montserrat';
-   color: var(--cor-texto-claro);
+ font-family: 'Montserrat';
+ color: var(--cor-texto-claro);
 }
 
 .navbar-default .container .navbar-nav li a:hover,
@@ -348,17 +360,17 @@ footer ul li.efeito-hr a{
     color:var(--cor-primaria);
     outline: 0;
 }
-
 .navbar-default .container .navbar-nav>.active>a {
     border-radius: 0;
     color: var(--cor-texto-claro);
-    background-color:var(--cor-primaria);
+    border:1px solid #364fc7;
+    border-radius: 4px;
+    padding: 4px;
 }
 
 .navbar-default .container .navbar-nav>.active>a:hover,
 .navbar-default .container .navbar-nav>.active>a:focus {
     color: var(--cor-texto-claro);
-    background-color: var(--cor-primaria);
 }
 
 
@@ -378,9 +390,9 @@ footer ul li.efeito-hr a{
 }
 
 .card .card-header h5 .btn-link{
-   color: var(--cor-secundaria);
-   font-weight: 700;
-   text-decoration: none;
+ color: var(--cor-secundaria);
+ font-weight: 700;
+ text-decoration: none;
 }
 .card .card-header{
     text-align: center;
