@@ -6,7 +6,10 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Sts\\": "source\\novo-milenium\\php-classes\\src"
-		}
+			"Source\\": "source/"
+		},
+		"files": [
+			"source/Config.php"
+		]
 	}
 }

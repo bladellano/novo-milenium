@@ -1,6 +1,6 @@
 <?php
 
-namespace Sts;
+namespace Source;
 
 use Rain\Tpl;
 

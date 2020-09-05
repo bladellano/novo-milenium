@@ -1,6 +1,6 @@
 <?php
 
-namespace Sts;
+namespace Source;
 
 error_reporting(0);
 

@@ -6,10 +6,14 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitff057540c7f800a1244b02e04d0565de
 {
+    public static $files = array (
+        '9bd2ec8822a509d00a9c42bf013d00c6' => __DIR__ . '/../..' . '/source/Config.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Sts\\' => 4,
+            'Source\\' => 7,
         ),
         'P' => 
         array (
@@ -18,9 +22,9 @@ class ComposerStaticInitff057540c7f800a1244b02e04d0565de
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sts\\' => 
+        'Source\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/source/novo-milenium/php-classes/src',
+            0 => __DIR__ . '/../..' . '/source',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
