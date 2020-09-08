@@ -9,5 +9,5 @@ composer.lock
 /tests/tests/
 /tests/results/
 /views-cache/
-
-
+/source/Config.php
+.vscode/

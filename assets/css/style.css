@@ -79,7 +79,9 @@ body {
 }
 
 .box-blog .content-post img {
+    object-fit: cover;
     width: 100%;
+    height: 100px;
 }
 
 .wrap-blogs {
@@ -108,7 +110,7 @@ body {
 /* Css Card dos Convenios */
 
 #agreements {
-    background-color: #b5ec9c;
+    background-color: #FFF;
 }
 
 .wrap-convenios .box-convenio:hover {
@@ -288,7 +290,7 @@ section iframe {
 /*=========================*/
 
 #quick-access {
-    background-color: #EEE;
+    background-color: #FFF;
 }
 
 #quick-access ul li:hover {
@@ -820,9 +822,10 @@ footer .fab, #about a .fab {
     border-radius: 50%;
     font-size: 20px;
     position: fixed;
-    bottom: 40px;
-    left: 3%;
+    bottom: 16px;
+    left: 50%;
     transform: translate(-50%, -50%);
+    display: none;
 }
 
 /*===================*/

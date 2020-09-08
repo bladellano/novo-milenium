@@ -132,7 +132,7 @@ $(function () {
 
 	/* Botão que surge no rodapé p/ levar até o topo.*/
 	$(window).scroll(function (e) {
-		if ($(this).scrollTop() > window.innerHeight) {
+		if ($(this).scrollTop() > 4500) {
 			$('.topo').fadeIn();
 		} else {
 			$('.topo').fadeOut();

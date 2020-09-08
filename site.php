@@ -2,12 +2,14 @@
 
 use \Source\Page;
 use \Source\Support\Mailer;
-use \Source\Model\Post;
+use \Source\Model\Blog;
 
 $app->get('/', function () {
 
-    $posts = (new Post())->lisAll();
-
+    //==============//
+    //=====BLOG=====//
+    //==============//
+    $posts = Blog::lisAll();
     foreach ($posts as &$post) {
         $post['m'] = (new DateTime($post['created_at']))->format("m");
         $post['d'] = strftime('%b', strtotime($post['created_at']));
