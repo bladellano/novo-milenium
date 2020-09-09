@@ -5,7 +5,6 @@ use \Source\Support\Mailer;
 use \Source\Model\Blog;
 
 $app->get('/', function () {
-
     //==============//
     //=====BLOG=====//
     //==============//
@@ -20,7 +19,9 @@ $app->get('/', function () {
 });
 
 $app->get('/post/:slug', function ($slug) {
-
+    //=================//
+    //====SHOW POST====//
+    //=================//
     $post = new Blog();
     $post->getWithSlug($slug);
     $result = $post->getValues();
