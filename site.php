@@ -19,6 +19,16 @@ $app->get('/', function () {
     $page->setTpl("main", ['posts' => $posts]);
 });
 
+$app->get('/post/:slug', function ($slug) {
+
+    $post = new Blog();
+    $post->getWithSlug($slug);
+    $result = $post->getValues();
+
+    $page = new Page();
+    $page->setTpl("post", ['post' => $result]);
+});
+
 $app->post('/email-sent', function () {
 
     $mailer = new Mailer(
