@@ -26,8 +26,10 @@ $app->get('/post/:slug', function ($slug) {
     $post->getWithSlug($slug);
     $result = $post->getValues();
 
+    $allPosts = Blog::lisAll();
+
     $page = new Page();
-    $page->setTpl("post", ['post' => $result]);
+    $page->setTpl("post", ['post' => $result,'posts'=>$allPosts]);
 });
 
 $app->post('/email-sent', function () {

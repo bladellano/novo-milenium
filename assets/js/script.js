@@ -1,6 +1,16 @@
 
 $(function () {
 
+	/* Effect Reveal */
+	window.sr = ScrollReveal({ reset: true });
+
+    sr.reveal('.reveal-video,.reveal-about,#services .reveal-first,#services .reveal-second,.list-cards-plans,.wrap-convenios,.wrap-blogs,.slick-depositions,.slick-parceiros,#accordion,#form-contact,footer .container', {
+        delay: 400,
+        scale: 0
+	});	
+
+	/* Menu Carousel */
+
 	$('.carousel-control-next').click(function () {
 		$('.carousel').carousel('next');
 	});

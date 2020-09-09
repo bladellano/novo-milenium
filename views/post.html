@@ -1,13 +1,40 @@
 <div class="header-page"></div>
 
 <div class="container post">
-  <h6 class="text-primary" style="margin-top:10px"> <a href="/">Home</a> » <a href="#">Blog</a></h6>
+
+  <nav aria-label="breadcrumb">
+    <p></p>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Blog</li>
+    </ol>
+  </nav>
+
   <hr>
-  <p> <i class="fa fa-calendar"></i> {function="toDatePtBr($post.created_at)"}</p>
-  <h3>{$post.title}</h3>
-  <img src="{function="url($post.image)"}">
 
-  <p class="text-muted text-justify">{$post.description}</p>
+  <div class="row">
+    <div class="col-md-9">
 
-  <p>Autor: {$post.author}</p>
-</div>
+      <p> <i class="fa fa-calendar-alt"></i> {function="toDatePtBr($post.created_at)"}</p>
+      <h3>{$post.title}</h3>
+      <img src="{function="url($post.image)"}">
+
+      {$post.description}
+
+      <p class="text-muted">Autor: {$post.author}</p>
+    </div>
+    <div class="col-md-3">
+      <h3>Recentes</h3>
+
+      {loop="$posts"}
+      <p><i class="fa fa-calendar-alt text-black-50"></i>
+        <small class="text-muted">{function="toDatePtBr($value.created_at)"}</small>
+        <br>
+        <a href="/post/{$value.slug}">{function="resume($value.title,55)"}</a>
+      </p>
+      <hr>
+      {/loop}
+    </div>
+  </div>
+
+</div><!-- container -->
