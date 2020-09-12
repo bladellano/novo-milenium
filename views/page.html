@@ -1,0 +1,48 @@
+<div class="header-page"></div>
+
+<div class="container post">
+
+  <nav aria-label="breadcrumb">
+    <p></p>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{$data.title}</li>
+    </ol>
+  </nav>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <h3>{$data.title}</h3>
+
+      {$data.description}
+    </div>
+      {ignore}
+    <!-- <div class="col-md-9">
+
+      <p> <i class="fa fa-calendar-alt"></i> {function="toDatePtBr($post.created_at)"}</p>
+      <h3>{$post.title}</h3>
+      <img src="{function="url($post.image)"}">
+
+      {$post.description}
+
+      <p class="text-muted">Autor: {$post.author}</p>
+    </div>
+    <div class="col-md-3">
+      <h3>Recentes</h3>
+
+      {loop="$posts"}
+      <p><i class="fa fa-calendar-alt text-black-50"></i>
+        <small class="text-muted">{function="toDatePtBr($value.created_at)"}</small>
+        <br>
+        <a href="/post/{$value.slug}">{function="resume($value.title,55)"}</a>
+      </p>
+      <hr>
+      {/loop}
+    </div> -->
+    {/ignore}
+  </div>
+
+</div><!-- container -->

@@ -3,6 +3,7 @@
 use \Source\Page;
 use \Source\Support\Mailer;
 use \Source\Model\Blog;
+use \Source\Model\PageSite;
 
 $app->get('/', function () {
     //==============//
@@ -16,6 +17,19 @@ $app->get('/', function () {
 
     $page = new Page();
     $page->setTpl("main", ['posts' => $posts]);
+});
+
+
+$app->get('/:slug', function ($slug) {
+    //==================//
+    //====SHOW PAGES====//
+    //==================//   
+    $pageSite = new PageSite();
+    $pageSite->getWithSlug($slug);
+    $result = $pageSite->getValues();
+    
+    $page = new Page();
+    $page->setTpl("page", ['data' => $result]);
 });
 
 $app->get('/post/:slug', function ($slug) {

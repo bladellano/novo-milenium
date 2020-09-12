@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap&family=Allura&family=Nunito');
 :root {
     /*Novos atributos*/
-    --cor-primaria: #FB8C00;
-    --cor-secundaria: #3949AB;
-    --cor-terciaria: #1A237E;
+    --cor-primaria: #D6822A;;
+    --cor-secundaria: #193F76;;
+    --cor-terciaria: #0a2e61;
     --cor-texto-claro: #FFF;
     --cor-texto-escuro: #333;
 }
@@ -283,7 +283,7 @@ body {
 }
 
 #plans {
-    background-color: #1A237E;
+    background-color: var(--cor-terciaria);
 }
 
 #plans .section-title {
