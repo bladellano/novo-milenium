@@ -74,17 +74,9 @@
 					allowfullscreen></iframe>
 			</div>
 			<div class="col-md-6 text-justify reveal-about">
-				<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem
-					sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os
-					embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos,
-					como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se
-					popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e
-					mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus
-					PageMaker.
+				<p>A Sociedade Novo Milenium é uma empresa especializada em serviços póstumos. A Sociedade Novo Milenium através de um trabalho voltado para melhor atender os seus clientes e associados, disponibiliza uma sede própria em um ponto estratégico dentro da grande região metropolitana e  com instalação moderna, frota de veículos adaptados e equipados, conforme exigido pela legislação estadual, para transportes funerários. Possui uma equipe de profissionais especialmente treinados para lidar na prestação de serviços funerários, bem como manter o respeito, qualidade e a segurança dos enlutados.
 				</p>
-				<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem
-					sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja
-				</p>
+				<p>Aceitamos todos os cartões de crédito: <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-diners-club"></i> <i class="fab fa-cc-amex"></i></p>
 			</div>
 		</div>
 	</div><!-- container -->
@@ -550,10 +542,9 @@
 								<div class="content-post">
 									<p class="category">JORNALISMO</p>
 									<img src="http://sistemamilenium.local.com/{$value.image_thumb}">
-									<p class="title"> {$value.title}</p>
-									<p class="content"> {$value.resume}
-									</p>
-									<a href="/post/{$value.slug}" class="btn btn-outline-primary btn-sm">Leia mais</a>
+									<p class="title"> {function="resume($value.title,55)"}</p>
+									<p class="content"> {function="resume($value.resume,100)"}</p>
+									<a href="/post/{$value.slug}" class="btn btn-danger btn-sm">Leia mais...</a>
 								</div>
 							</div>
 						</li>
@@ -947,7 +938,7 @@
 											rows="5"></textarea>
 									</div>
 									<div class="form-group text-center">
-										<button class="btn btn-success btn-block btn-lg" type="submit">Enviar</button>
+										<button class="btn btn-success" type="submit">ENVIAR</button>
 									</div>
 								</div>
 							</div>

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap&family=Allura&family=Nunito');
 :root {
     /*Novos atributos*/
-    --cor-primaria: #D6822A;;
+    --cor-primaria: #66cd00;
     --cor-secundaria: #193F76;;
     --cor-terciaria: #0a2e61;
     --cor-texto-claro: #FFF;
@@ -18,6 +18,33 @@
 body {
     background-color: #FFF;
     color: var(--cor-texto-escuro);
+}
+
+.btn.btn-primary{
+    background-color: #FF8C00;
+    border:none; 
+    color: #FFF;
+    font-weight: bold;
+}
+
+.btn.btn-success{
+    background-color: var(--cor-primaria);
+    border:1px solid var(--cor-primaria); 
+    color: #FFF;
+    font-weight: bold;
+}
+
+#about i{
+    font-size:28px;
+}
+
+/* Custom Breadcrumb */
+
+.breadcrumb a{
+    color: var(--cor-secundaria);
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    content:'\203a';
 }
 
 /* Custom Page Post */
