@@ -205,13 +205,20 @@ body {
 /* Css Card dos Convenios */
 
 #agreements {
-    background-color: #FFF;
+    background-color: var(--cor-secundaria);
+}
+#agreements h2{
+    color:#FFF;
+}
+#agreements hr{
+   border: 2px solid var(--cor-primaria);
 }
 
 .wrap-convenios .box-convenio:hover {
     cursor: pointer;
     /*USAR JAVASCRIPT PARA ABRIR*/
-    box-shadow: 2px 2px 8px rgb(148, 145, 145);
+    /* box-shadow: 2px 2px 8px rgb(0, 0, 0); */
+    border:2px solid var(--cor-primaria);
 }
 
 .wrap-convenios .box-convenio {
@@ -221,7 +228,8 @@ body {
     width: 325px;
     margin: 0 auto 8px;
     transition: all .3s;
-    background-color: #fff;
+    background-color: #FFF;
+    border:2px solid #FFF;
 }
 
 .wrap-convenios .box-convenio .icon i {
