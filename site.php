@@ -4,6 +4,7 @@ use \Source\Page;
 use \Source\Support\Mailer;
 use \Source\Model\Blog;
 use \Source\Model\PageSite;
+use \Source\Model\PhotosAlbums;
 
 $app->get('/', function () {
     //==============//
@@ -19,6 +20,28 @@ $app->get('/', function () {
     $page->setTpl("main", ['posts' => $posts]);
 });
 
+$app->get('/galeria',function(){
+    //==========================//
+    //====SHOW PHOTOS/ALBUMS====//
+    //==========================//  
+    $albums = new PhotosAlbums();
+    $result = $albums->lisAll();
+
+    $page = new Page();
+    $page->setTpl("albums", ['albums' => $result]);
+
+});
+
+$app->get('/galeria/:id_album',function($id_album){
+    //===================//
+    //====SHOW PHOTOS====//
+    //===================//
+    $albums = new PhotosAlbums();
+    $albums->getPhotos((int) $id_album);
+    $page = new Page();
+    $page->setTpl("photos", ['photos' => $albums->getValues()]);
+
+});
 
 $app->get('/:slug', function ($slug) {
     //==================//

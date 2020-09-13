@@ -69,14 +69,17 @@
 
 		<div class="row">
 			<div class="col-md-6 reveal-video">
-				<iframe width="100%" height="315" src="https://www.youtube.com/embed/8g96LV6mwEA" frameborder="0"
-					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe>
+				<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fsociedadenovomilenium%2Fposts%2F164295065188425&show_text=true&width=552&height=617&appId" width="100%" height="599" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+				</iframe>		
 			</div>
 			<div class="col-md-6 text-justify reveal-about">
-				<p>A Sociedade Novo Milenium é uma empresa especializada em serviços póstumos. A Sociedade Novo Milenium através de um trabalho voltado para melhor atender os seus clientes e associados, disponibiliza uma sede própria em um ponto estratégico dentro da grande região metropolitana e  com instalação moderna, frota de veículos adaptados e equipados, conforme exigido pela legislação estadual, para transportes funerários. Possui uma equipe de profissionais especialmente treinados para lidar na prestação de serviços funerários, bem como manter o respeito, qualidade e a segurança dos enlutados.
+				<p style="line-height: 50px;font-size:18px">A Sociedade Novo Milenium é uma empresa especializada em serviços póstumos. A Sociedade Novo Milenium através de um trabalho voltado para melhor atender os seus clientes e associados, disponibiliza uma sede própria em um ponto estratégico dentro da grande região metropolitana e  com instalação moderna, frota de veículos adaptados e equipados, conforme exigido pela legislação estadual, para transportes funerários. Possui uma equipe de profissionais especialmente treinados para lidar na prestação de serviços funerários, bem como manter o respeito, qualidade e a segurança dos enlutados.
 				</p>
 				<p>Aceitamos todos os cartões de crédito: <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-diners-club"></i> <i class="fab fa-cc-amex"></i></p>
+
+				<div class="row">
+					<div class="col-md-12"><a href="/galeria" class="btn btn-success btn-block">GALERIA DE IMAGENS</a></div>
+				</div>
 			</div>
 		</div>
 	</div><!-- container -->
@@ -528,9 +531,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-
 				<div class="wrap-blogs">
-
 					<ul>
 						{loop="$posts"}
 						<li>
@@ -541,17 +542,15 @@
 									<span>{$value.d}</span></div>
 								<div class="content-post">
 									<p class="category">JORNALISMO</p>
-									<img src="http://sistemamilenium.local.com/{$value.image_thumb}">
+									<img src="{function="url($value.image_thumb)"}">
 									<p class="title"> {function="resume($value.title,55)"}</p>
 									<p class="content"> {function="resume($value.resume,100)"}</p>
-									<a href="/post/{$value.slug}" class="btn btn-danger btn-sm">Leia mais...</a>
+									<a href="/post/{$value.slug}" class="btn btn-success btn-sm">Leia mais...</a>
 								</div>
 							</div>
 						</li>
 						{/loop}
-
 					</ul>
-
 				</div>
 			</div>
 		</div>

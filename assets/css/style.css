@@ -20,6 +20,42 @@ body {
     color: var(--cor-texto-escuro);
 }
 
+/* Organiza a lista de albuns */
+
+.list-photos {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 10px auto;
+}
+
+.list-photos li {
+    flex: 1 1 152px;
+    text-align: center;
+    margin-bottom: 2px;
+    margin-left:2px;
+}
+
+.list-photos li img:hover {
+    filter: grayscale(0%);
+}
+.list-photos li img {
+    filter: grayscale(100%);
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    transition: all .3s;
+}
+
+/* Ajustando fundo do video */
+.reveal-video{
+    padding:6px 6px 10px 6px;
+    background-color: #FFF;
+    box-shadow: 4px 4px 12px #0007;
+}
+/* Sobreescrevendo botão success e primary */
 .btn.btn-primary{
     background-color: #FF8C00;
     border:none; 
@@ -33,7 +69,7 @@ body {
     color: #FFF;
     font-weight: bold;
 }
-
+/* Ajuste no tamanho do icone de cartões */
 #about i{
     font-size:28px;
 }
