@@ -2,7 +2,8 @@
 :root {
     /*Novos atributos*/
     --cor-primaria: #00D453;
-    --cor-secundaria: #193F76;;
+    --cor-secundaria: #193F76;
+    ;
     --cor-terciaria: #0a2e61;
     --cor-texto-claro: #FFF;
     --cor-texto-escuro: #333;
@@ -35,12 +36,13 @@ body {
     flex: 1 1 152px;
     text-align: center;
     margin-bottom: 2px;
-    margin-left:2px;
+    margin-left: 2px;
 }
 
 .list-photos li img:hover {
     filter: grayscale(0%);
 }
+
 .list-photos li img {
     filter: grayscale(100%);
     object-fit: cover;
@@ -50,37 +52,43 @@ body {
 }
 
 /* Ajustando fundo do video */
-.reveal-video{
-    padding:6px 6px 10px 6px;
+
+.reveal-video {
+    padding: 6px 6px 10px 6px;
     background-color: #FFF;
     box-shadow: 4px 4px 12px #0007;
 }
+
 /* Sobreescrevendo botão success e primary */
-.btn.btn-primary{
+
+.btn.btn-primary {
     background-color: #FF8C00;
-    border:none; 
+    border: none;
     color: #FFF;
     font-weight: bold;
 }
 
-.btn.btn-success{
+.btn.btn-success {
     background-color: var(--cor-primaria);
-    border:1px solid var(--cor-primaria); 
+    border: 1px solid var(--cor-primaria);
     color: #FFF;
     font-weight: bold;
 }
+
 /* Ajuste no tamanho do icone de cartões */
-#about i{
-    font-size:28px;
+
+#about i {
+    font-size: 28px;
 }
 
 /* Custom Breadcrumb */
 
-.breadcrumb a{
+.breadcrumb a {
     color: var(--cor-secundaria);
 }
-.breadcrumb-item + .breadcrumb-item::before{
-    content:'\203a';
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: '\203a';
 }
 
 /* Custom Page Post */
@@ -97,9 +105,9 @@ body {
     padding-right: 8px;
     padding-bottom: 4px;
 }
-.post p{
-    text-align: justify;
 
+.post p {
+    text-align: justify;
 }
 
 .header-page {
@@ -207,18 +215,20 @@ body {
 #agreements {
     background-color: var(--cor-secundaria);
 }
-#agreements h2{
-    color:#FFF;
+
+#agreements h2 {
+    color: #FFF;
 }
-#agreements hr{
-   border: 2px solid var(--cor-primaria);
+
+#agreements hr {
+    border: 2px solid var(--cor-primaria);
 }
 
 .wrap-convenios .box-convenio:hover {
     cursor: pointer;
     /*USAR JAVASCRIPT PARA ABRIR*/
     /* box-shadow: 2px 2px 8px rgb(0, 0, 0); */
-    border:2px solid var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
 }
 
 .wrap-convenios .box-convenio {
@@ -229,7 +239,7 @@ body {
     margin: 0 auto 8px;
     transition: all .3s;
     background-color: #FFF;
-    border:2px solid #FFF;
+    border: 2px solid #FFF;
 }
 
 .wrap-convenios .box-convenio .icon i {
@@ -773,26 +783,26 @@ footer ul li.efeito-hr a {
     background-color: #E4E4E4;
 }
 
-.card .fas {
+#faq .card .fas {
     transition: .3s transform ease-in-out;
 }
 
-.card .collapsed .fas {
+#faq .card .collapsed .fas {
     transform: rotate(-90deg);
 }
 
-.card .card-header h5 .btn-link {
+#faq .card .card-header h5 .btn-link {
     color: var(--cor-secundaria);
     font-weight: 700;
     text-decoration: none;
 }
 
-.card .card-header {
+#faq .card .card-header {
     text-align: center;
     border-bottom: none;
 }
 
-.card {
+#faq .card {
     margin: 6px;
 }
 

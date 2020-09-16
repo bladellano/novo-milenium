@@ -5,6 +5,38 @@ use \Source\Support\Mailer;
 use \Source\Model\Blog;
 use \Source\Model\PageSite;
 use \Source\Model\PhotosAlbums;
+use Source\Model\Convenio;
+
+$app->get('/convenios', function () {
+
+    $search = (isset($_GET['search'])) ? $_GET['search'] : "";
+    $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+    if ($search != '') {
+        $pagination = Convenio::getPageSearch(trim($search), $page);
+    } else {
+        $pagination = Convenio::getPage($page,6);
+    }
+    $pages = [];
+
+    for ($x = 0; $x <  $pagination['pages']; $x++) {
+        array_push($pages, [
+            'href' => '/convenios?' . http_build_query([
+                'page' => $x + 1,
+                // 'search' => $search
+            ]),
+            'text' => $x + 1
+        ]);
+    }
+
+    $page = new Page();
+
+    $page->setTpl("convenios", [
+        "convenios" => $pagination['data'],
+        "search" => $search,
+        "pages" => $pages,
+        "title"=>'Convênios'
+        ]);
+});
 
 $app->get('/', function () {
     //==============//
@@ -20,7 +52,7 @@ $app->get('/', function () {
     $page->setTpl("main", ['posts' => $posts]);
 });
 
-$app->get('/galeria',function(){
+$app->get('/galeria', function () {
     //==========================//
     //====SHOW PHOTOS/ALBUMS====//
     //==========================//  
@@ -29,10 +61,9 @@ $app->get('/galeria',function(){
 
     $page = new Page();
     $page->setTpl("albums", ['albums' => $result]);
-
 });
 
-$app->get('/galeria/:id_album',function($id_album){
+$app->get('/galeria/:id_album', function ($id_album) {
     //===================//
     //====SHOW PHOTOS====//
     //===================//
@@ -40,7 +71,6 @@ $app->get('/galeria/:id_album',function($id_album){
     $albums->getPhotos((int) $id_album);
     $page = new Page();
     $page->setTpl("photos", ['photos' => $albums->getValues()]);
-
 });
 
 $app->get('/:slug', function ($slug) {
@@ -50,7 +80,7 @@ $app->get('/:slug', function ($slug) {
     $pageSite = new PageSite();
     $pageSite->getWithSlug($slug);
     $result = $pageSite->getValues();
-    
+
     $page = new Page();
     $page->setTpl("page", ['data' => $result]);
 });
@@ -66,7 +96,7 @@ $app->get('/post/:slug', function ($slug) {
     $allPosts = Blog::lisAll();
 
     $page = new Page();
-    $page->setTpl("post", ['post' => $result,'posts'=>$allPosts]);
+    $page->setTpl("post", ['post' => $result, 'posts' => $allPosts]);
 });
 
 $app->post('/email-sent', function () {

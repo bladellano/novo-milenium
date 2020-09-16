@@ -1,0 +1,53 @@
+<div class="header-page"></div>
+
+<div class="container">
+
+    <nav aria-label="breadcrumb">
+        <p></p>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{$title}</li>
+        </ol>
+    </nav>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Lista de Convênios</h3>
+            <div class="accordion" id="accordion">
+                {loop="$convenios"}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-success btn-block text-left" data-toggle="collapse" data-target="#collapse_{$key}" aria-expanded="true" aria-controls="collapse_{$key}">
+                            {$value.company}
+                        </button>
+                      </h5>
+                    </div>
+                
+                    <div id="collapse_{$key}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <strong>{$value.description}</strong>
+                        <br/>
+                        <i class="fa fa-phone" aria-hidden="true"></i> {$value.phones}
+                        <br>
+                        <i class="fa fa-mail-bulk" aria-hidden="true"></i> {$value.email}
+                        <br/>
+                        <i class="fa fa-home" aria-hidden="true"></i> {$value.address}
+                      </div>
+                    </div>
+                  </div>
+                {/loop}
+            </div>
+        </div>
+    </div>
+    <p></p>
+        <ul class="pagination d-flex justify-content-center">
+            {loop="$pages"}          
+                {if="$_GET['page']==''"} {$_GET['page']=1} {/if}
+                <li {if="$value.text == $_GET['page']"} class="page-item active" {/if}">
+                    <a class="page-link" href="{$value.href}">{$value.text}</a>
+                </li>
+            {/loop}
+        </ul>
+</div><!-- container -->
