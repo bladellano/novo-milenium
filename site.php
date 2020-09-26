@@ -1,20 +1,24 @@
 <?php
 
+#include('test-payment.php');
+
 use \Source\Page;
 use \Source\Support\Mailer;
 use \Source\Model\Blog;
 use \Source\Model\PageSite;
 use \Source\Model\PhotosAlbums;
-use Source\Model\Convenio;
+use \Source\Model\Convenio;
 
 $app->get('/convenios', function () {
-
+    //=================//
+    //====CONVÊNIOS====//
+    //=================//
     $search = (isset($_GET['search'])) ? $_GET['search'] : "";
     $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
     if ($search != '') {
         $pagination = Convenio::getPageSearch(trim($search), $page);
     } else {
-        $pagination = Convenio::getPage($page,6);
+        $pagination = Convenio::getPage($page, 6);
     }
     $pages = [];
 
@@ -34,8 +38,8 @@ $app->get('/convenios', function () {
         "convenios" => $pagination['data'],
         "search" => $search,
         "pages" => $pages,
-        "title"=>'Convênios'
-        ]);
+        "title" => 'Convênios'
+    ]);
 });
 
 $app->get('/', function () {

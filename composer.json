@@ -1,4 +1,12 @@
-{
+{  "name": "bladellano/novo-milenium",
+    "description": "Site para sociedade novo milenium",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Caio Silva",
+            "email": "bladellano@gmail.com"
+        }
+    ],
 	"require": {
 		"phpmailer/phpmailer": "^6.1",
 		"slim/slim": "2.0",
