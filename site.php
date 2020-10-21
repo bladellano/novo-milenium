@@ -235,7 +235,7 @@ $app->get('/', function () {
         'posts' => $posts,
         'plans' => $plans,
         'convenios' => $convenios,
-        'scripts' => ['neurologic_.js']
+        'scripts' => ['neurologic.js']
     ]);
 });
 
