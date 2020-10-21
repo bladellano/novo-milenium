@@ -330,8 +330,7 @@ form#form-buy-plans h5{
     font-weight: bold;
     font-size: 14px;
     letter-spacing: -1px;
-    /* color: var(--cor-primaria); */
-    color: #000;
+    color: var(--cor-secundaria);
 }
 
 .wrap-convenios .box-convenio .content p:nth-child(3) {
