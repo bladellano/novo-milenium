@@ -11,6 +11,7 @@ $(function () {
 	/* Pegando o valor do plano*/
 	$('button[data-target="#openModalPlans"]').click(function (e) {
 		$('#desvalueplan').val($(this).data('value'));
+ console.log("$(this).data('value') ", $(this).data('value'));
 	})
 
 	/* Mascarando campos do cartão de crédito */
@@ -18,7 +19,6 @@ $(function () {
 	$('#expiryMonth').mask('00');
 	$('#expiryYear').mask('0000');
 	$('#ccv').mask('000');
-
 
 	$('#descpf').mask('000.000.000-00', { reverse: true });
 	$('#nrphone').mask('00000000000');
@@ -47,7 +47,6 @@ $(function () {
 			dataType: "json",
 			async: true,
 			beforeSend: function () {
-				console.log('Processando...');
 				load('open');
 				$('.wrap-form-cc').find('input').attr('disabled', true);
 			},
