@@ -24,7 +24,7 @@ class Payment
      * @param integer $cvv código de segurança
      * @return Payment
      */
-    public function createCard(string $holder_name, string $card_number, string $expiration_date, int $cvv): Payment
+    public function createCard_(string $holder_name, string $card_number, string $expiration_date, int $cvv): Payment
     {
         $this->endPoint = '/cards';
         $this->build = [
@@ -36,6 +36,31 @@ class Payment
         $this->post();
         return $this;
     }
+
+    public function createClient($data)
+    {
+        $this->endPoint = "/customers";
+        $this->build = [
+            "name" => $data['desperson'],
+            "email" => $data['desemail'],
+            "mobilePhone" => $data['nrphone'],
+            "address" => $data['desaddress'],
+            "addressNumber" => $data['desnumber'],
+            "complement" => $data['descomplement'],
+            "province" => $data['desdistrict'],
+            "postalCode" => $data['deszipcode'],
+            "cpfCnpj" => $data['descpf'],
+            "personType" => "FISICA",
+            "city" => $data['descity'],
+            "state" => $data['desstate'],
+            "country" => $data['descountry'],
+            "observations" => "Cliente do portal."
+        ];
+
+        $this->post();
+        return $this;
+    }
+
     public function listPaymentsWithBoleto()
     {
         $this->endPoint = "/payments?billingType=BOLETO";
@@ -48,6 +73,24 @@ class Payment
         $this->get();
         return $this;
     }
+    public function withBoleto($customer): Payment
+    {
+      
+        $this->endPoint = "/payments";
+        $this->build = [
+            "customer" => $customer['customer'],
+            "billingType" => $customer['billingType'],
+            "dueDate" => $customer['dueDate'],
+            "value" => $customer['value'],
+            "description" => $customer['description'],
+            "externalReference" => $customer['externalReference'],
+            "postalService" => $customer['postalService']
+        ];
+
+        // var_export($this->build);exit;
+        $this->post();
+        return $this;
+    }
     public function withCard($customer, $creditCard, $creditCardHolderInfo): Payment
     {
         $this->endPoint = "/payments";
@@ -58,25 +101,11 @@ class Payment
             "value" => $customer['value'],
             "description" => $customer['description'],
             "externalReference" => $customer['externalReference'],
+            //
             "creditCard" => $creditCard,
             "creditCardHolderInfo" => $creditCardHolderInfo
         ];
-
-        $this->post();
-        return $this;
-    }
-    public function withCard_(int $order_id, CreditCard $card, string $amount, int $installments): Payment
-    {
-        $this->endPoint = "/transactions";
-        $this->build = [
-            'payment_type' => 'credit_card',
-            'amount' => $amount,
-            'installments' => $installments,
-            'card_id' => $card->hash,
-            'metadata' => [
-                'orderId' => $order_id
-            ]
-        ];
+        // echo '<pre>';var_export($this->build);exit;
         $this->post();
         return $this;
     }
@@ -91,6 +120,7 @@ class Payment
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->build));
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "Content-Type: application/json",
@@ -98,6 +128,7 @@ class Payment
         ));
 
         $this->callback = json_decode(curl_exec($ch));
+        // echo '<pre>';var_export($this->callback);exit;
         curl_close($ch);
     }
 

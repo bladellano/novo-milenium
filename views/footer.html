@@ -18,7 +18,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-3 footer-list">
+      <div class="col-md-4 footer-list">
         <h3>Plantão 24 horas</h3>
         (91) 3238 0896 | 98040 8314 | 98894 7555 
         <p></p>
@@ -29,18 +29,18 @@
           Belém - Pará - Brasil.
         </address>
       </div>
-      <div class="col-md-3 footer-list">
+      <div class="col-md-4 footer-list">
         <h3>Principais Serviços</h3>
         <ul>
           <li class="efeito-hr"><a href="/funeraria">Funerária</a><hr></li>
           <li class="efeito-hr"><a href="/cremacao">Cremação</a><hr></li>
           <li class="efeito-hr"><a href="/velorios">Velórios</a><hr></li>
           <li class="efeito-hr"><a href="/cerimonial">Cerimonial</a><hr></li>
-          <li class="efeito-hr"><a href="/translados">Translados</a><hr></li>
+          <li class="efeito-hr"><a href="/traslados">Translados</a><hr></li>
           <li class="efeito-hr"><a href="/acolhimento-psicologico">Acolhimento Psicológico</a><hr></li>
         </ul>
       </div>
-      <div class="col-md-3 footer-list">
+      <div class="col-md-4 footer-list">
         <h3>Convênios</h3>
         <ul>
           <li class="efeito-hr"><a href="/convenios/2">Clínica Dr. + Vida</a><hr/></li>
@@ -48,36 +48,6 @@
           <li class="efeito-hr"><a href="/convenios/4">Brasmede - Centro Médico</a><hr/></li>
         </ul>
       </div>
-      <div class="col-md-3 footer-list">
-        <h3>Ligamos para você</h3>
-
-        <form>
-          <div class="form-group">
-            <div class="col-sm-12">
-              <input type="email" class="form-control" id="colFormLabel" placeholder="Nome">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-12">
-              <input type="email" class="form-control" id="colFormLabel" placeholder="E-mail">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-12">
-              <input type="email" class="form-control" id="colFormLabel" placeholder="Telefone">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-12">
-             <input type="submit" value="ENVIAR" class="btn btn-success btn-block">
-           </div>
-         </div>   
-
-       </form>
-     </div>
    </div>
 
  </div><!-- /.container -->
@@ -94,7 +64,6 @@
 </footer>
 
 <script src="/bower_components/jquery/dist/jquery.js"></script>
-<!-- <script src="/https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script> -->
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
 <script src="/bower_components/lightbox2/dist/js/lightbox.min.js" ></script>
 <script src="/bower_components/slick-carousel/slick/slick.js" ></script>
@@ -103,18 +72,16 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="/assets/js/jquery.mask.min.js" ></script>
 <script src="/assets/js/utils.js" ></script>
 <script src="/assets/js/script.js" ></script>
 
-
-
-<!-- Scripts adicionados por página -->
+<!-- Scripts adicionados por páginas -->
 {loop="$scripts"}
 <script src="/assets/js/{$value}" ></script>
 {/loop}
-
-<!-- Neurologic -->
-<script type="text/javascript">(function(n,r,l,d){try{var h=r.head||r.getElementsByTagName("head")[0],s=r.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src",l);n.neuroleadId=d;h.appendChild(s);}catch(e){}})(window,document,"https://cdn.neurologic.com.br/neurolead/neurolead.min.js", 8885);</script>
 
 </body>
 

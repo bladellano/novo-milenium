@@ -22,4 +22,10 @@ class Blog extends Model
         $results = $sql->select("SELECT * FROM articles WHERE slug = :slug", ['slug' => $slug]);
         $this->setData($results[0]);
     }
+    public static function getCategory($id)
+    {
+        $sql = new Sql();
+        $results = $sql->select("SELECT category FROM articles_categories WHERE id = :id", ['id' => $id]);
+        return $results[0]['category'];
+    }
 }

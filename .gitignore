@@ -11,3 +11,6 @@ composer.lock
 /views-cache/
 /source/Config.php
 .vscode/
+test-cadastro-usuario.php
+test-payment.php
+test-user-asaas.php

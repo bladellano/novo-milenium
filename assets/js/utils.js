@@ -16,3 +16,13 @@
     v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
     return v;
 }
+
+/*Function of loading*/
+function load(action) {
+    var load_div = $('.ajax_load');
+    if (action === 'open') {
+        load_div.fadeIn().css('display', 'flex');
+    } else {
+        load_div.fadeOut();
+    }
+}

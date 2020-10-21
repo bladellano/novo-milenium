@@ -1,3 +1,5 @@
+{include="modal-payment"}
+
 <div id="carousel-main" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 	</ol>
@@ -21,7 +23,6 @@
 			</div>
 		</div>
 
-
 	</div>
 	<a class="carousel-control-prev" href="#indicators" role="button" data-slide="prev">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,7 +33,6 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
-
 
 <section id="quick-access">
 	<div class="container">
@@ -201,13 +201,14 @@
 					<hr>
 				</div>
 
-
 				<ul class="list-cards-plans">
+					{loop="$plans"}
 					<li>
 						<div class="card-plans">
-							<h4>PLANO ECO PLUS</h4>
+							<h4>{$value.plan}</h4>
 							<div>
-								<h5>4 Pessoas</h5><span>2 % do salário minimo</span>
+								<h5>{$value.qtd_people} Pessoas {if="$value.travel == 1"}<i class="fas fa-plane"></i>{/if}</h5>
+								<span>{$value.percentage} % do salário minimo (R${function="formatPrice(1045*($value.percentage/100))"})</span>
 							</div>
 							<hr>
 							<ul>
@@ -215,175 +216,29 @@
 								<li> Taxa fixa vitalícia de manutenção</li>
 								<li> Após a quitação da prestação fixa.</li>
 							</ul>
-							<button class="btn btn-primary btn-block">
+							<button class="btn btn-primary btn-block" data-value="{function="formatPrice(1045*($value.percentage/100))"}" data-toggle="modal"
+								data-target="#openModalPlans">
 								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
 							</button>
 							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
 								credenciados ou no próprio escritório</small>
 						</div>
 					</li>
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO ECO PLUS <i class="fas fa-plane"></i></h4>
-							<div>
-								<h5>4 Pessoas</h5><span>3 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-								<li> Com viagem.</li>
+					{/loop}
 							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO ECONÔMICO</h4>
-							<div>
-								<h5>6 Pessoas</h5><span>3 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO ECONÔMICO <i class="fas fa-plane"></i></h4>
-							<div>
-								<h5>4 Pessoas</h5><span>4 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-								<li> Com viagem.</li>
-							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO FAMILIAR <i class="fas fa-plane"></i></h4>
-							<div>
-								<h5>8 Pessoas</h5><span>5 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-								<li> Com viagem.</li>
-							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO FAMILIAR</h4>
-							<div>
-								<h5>8 Pessoas</h5><span>4 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO MÁXIMO</h4>
-							<div>
-								<h5>13 Pessoas</h5><span>5 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-					<li>
-						<div class="card-plans">
-							<h4>PLANO MÁXIMO <i class="fas fa-plane"></i></h4>
-							<div>
-								<h5>13 Pessoas</h5><span>6 % do salário minimo</span>
-							</div>
-							<hr>
-							<ul>
-								<li> Entrada de acordo com o plano</li>
-								<li> Taxa fixa vitalícia de manutenção</li>
-								<li> Após a quitação da prestação fixa.</li>
-								<li> Com viagem.</li>
-							</ul>
-							<button class="btn btn-primary btn-block">
-								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
-							</button>
-							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
-								credenciados ou no próprio escritório</small>
-						</div>
-					</li>
-
-				</ul>
 
 			</div>
 		</div>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-12 text-center">
 				<a href="" class="btn btn-success btn-sm">TODOS OS PLANOS</a>
 				<p></p>
 			</div>
-		</div>
-
+		</div> -->
 	</div>
 </section>
 
 <!-- CONVENIOS -->
-<!-- IMPORTANTE -->
 
 <section id="agreements">
 	<div class="container">
@@ -402,107 +257,19 @@
 
 					<ul>
 
+						{loop="$convenios"}
 						<li>
 							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-vial"></i></div>
+								<div class="icon"><i class="far fa-hospital"></i></div>
 								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
+									<p>{$value.company}</p>
+									<small>{$value.description}</small>
+									<p>{$value.address}</p>
+									<p>{$value.phones}</p>
 								</div>
 							</div>
 						</li>
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-bong"></i></div>
-								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-dna"></i></div>
-								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-vial"></i></div>
-								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-bong"></i></div>
-								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-dna"></i></div>
-								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-vial"></i></div>
-								<div class="content">
-									<p>CLINICA DR. + VIDA</p>
-									<small>Consultas, exames e raio x</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-bong"></i></div>
-								<div class="content">
-									<p>CENTRO MÉDICO FORMOSA</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="box-convenio">
-								<div class="icon"><i class="fas fa-dna"></i></div>
-								<div class="content">
-									<p>BRASMEDE - CENTRO MÉDICO</p>
-									<small>Consultas e exames</small>
-									<p>Av. Almirante Barroso, entre Vileta e Humaitá - São Brás</p>
-									<p>(91) 3038-318 | 99276-5554</p>
-								</div>
-							</div>
-						</li>
+						{/loop}
 
 					</ul>
 				</div>
@@ -540,12 +307,12 @@
 									<hr />
 									<span>{$value.d}</span></div>
 								<div class="content-post">
-									<p class="category">JORNALISMO</p>
-									<img src="{function=" url($value.image_thumb)"}">
+									<p class="category">{$value.category}</p>
+									<img src="{function="url($value.image_thumb)"}">
 									<p class="title"> {function="resume($value.title,55)"}</p>
 									<p class="content"> {function="resume($value.resume,100)"}</p>
 									<a style="display: inline;" href="/post/{$value.slug}"
-										class="btn btn-success btn-sm">Leia mais...</a>
+										class="btn btn-success btn-sm">Leia mais</a>
 								</div>
 							</div>
 						</li>
@@ -555,10 +322,10 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<!-- 	<div class="col-md-12 text-center">
 				<a href="" class="btn btn-success btn-sm">TODAS AS NOTÍCIAS</a>
 				<p></p>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
@@ -618,8 +385,6 @@
 	</div>
 </section>
 
-
-
 <section id="faq" class="">
 	<div class="container">
 		<div class="row">
@@ -628,9 +393,7 @@
 					<h2>Perguntas Frequente</h2>
 					<hr>
 					<br />
-
 					<div class="row">
-
 						<div class="col-lg-6">
 							<div id="accordion">
 								<div class="card">
@@ -855,95 +618,10 @@
 		<div class="row">
 
 			<div class="col-lg-12">
-
 				<div class="row">
 					<div class="col-md-8 offset-md-2">
-
-						<form id="form-contact">
-
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<div class="input-group">
-											<div class="input-group-prepend"><span class="input-group-text"><i
-														class="far fa-user"></i></span></div>
-											<input type="text" name="name" class="form-control" placeholder="Nome"
-												required>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="input-group">
-											<div class="input-group-prepend"><span class="input-group-text"><i
-														class="fas fa-phone"></i></span></div>
-											<input type="tel" onkeyup="mascara(this,mtel);" name="tel" maxlength="15"
-												class="form-control" placeholder="Telefone com DDD" required>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-lg-6">
-									<div class="form-group">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<span class="input-group-text" id="basic-addon1"><i
-														class="far fa-envelope"></i></span>
-											</div>
-											<input type="email" name="email" class="form-control" placeholder="E-mail"
-												required>
-										</div>
-									</div>
-
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="far fa-building"></i></span>
-										</div>
-										<input type="text" name="company" class="form-control"
-											placeholder="Empresa ou Seu nome">
-									</div>
-								</div>
-							</div><!-- /.row -->
-							<div class="row">
-								<div class="col-md-12">
-									<!-- FORMULARIO DE CONTATO -->
-									<div class="form-group">
-										<select name="need" id="" class="form-control" required>
-											<option value="">O que você precisa?</option>
-											<option value="Traslado">Traslado</option>
-											<option value="Cremação">Cremação</option>
-											<option value="Ornamentação">Ornamentação</option>
-											<option value="Coroa de flores">Coroa de flores</option>
-											<option value="Remoção de corpo">Remoção de corpo</option>
-											<option value="Carro fúnebre">Carro fúnebre</option>
-											<option value="Ônibus para acompanhate">Ônibus para acompanhate</option>
-											<option value="Abertura de sepultura">Abertura de sepultura</option>
-											<option value="Viagem para município">Viagem para município</option>
-											<option value="Convênios">Convênios</option>
-											<option value="Planos">Planos</option>
-											<option value="Outros assuntos">Outros assuntos</option>
-
-										</select>
-									</div>
-									<div class="form-group">
-										<select name="period" id="" class="form-control" required>
-											<option value="">Qual período você quer ser contatado?</option>
-											<option value="De manhã">De manhã</option>
-											<option value="De tarde">De tarde</option>
-											<option value="De noite">De noite</option>
-											<option value="Qualquer período">Qualquer período</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="">Mensagem:</label>
-										<textarea class="form-control" name="messenger" id="messenger" cols="30"
-											rows="5"></textarea>
-									</div>
-									<div class="form-group text-center">
-										<button class="btn btn-success" type="submit">ENVIAR</button>
-									</div>
-								</div>
-							</div>
-						</form>
-
+						<!-- FORMULÁRIO DE CONTATO -->
+						{include="form-contact"}
 					</div>
 				</div>
 			</div>

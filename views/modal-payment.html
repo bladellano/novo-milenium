@@ -1,0 +1,112 @@
+<!-- Modal Planos -->
+<div class="modal fade" id="openModalPlans" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="ModalLabel">Aquisição de um Plano</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+				<form action="#" method="POST" id="form-buy-plans">
+					<input type="hidden" name="desvalueplan" id="desvalueplan">
+					<div class="row mb-4 header-user" style="display: none;">
+						<div class="col-md-6 text-primary"><i class="fas fa-user"></i> <span id="show-user"></span>
+						</div>
+						<div class="col-md-6 text-right"><a href="#" id="btnLogoutUser">Sair</a></div>
+					</div>
+
+					<h5 class="text-center">Dados do Cliente</h5>
+
+					<div class="show-data-user" style="display: none;">
+					</div>
+
+					<div class="box-login">
+						<div class="row justify-content-md-center">
+							<div class="form-group col-md-8">
+								<label for="deslogin">Login:</label>
+								<input type="text" id="deslogin" name="deslogin" class="form-control form-control-sm">
+							</div>
+							<div class="form-group col-md-8">
+								<label for="despassword">Senha:</label>
+								<input type="password" id="despassword" name="despassword"
+									class="form-control form-control-sm">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<p> <a href="/cadastro-cliente"><u>Faça seu cadastro.</u></a></p>
+							</div>
+						</div>
+						<p class="text-center">
+							<button id="btnLoginPlans" class="btn btn-primary">Logar</button>
+						</p>
+					</div>
+
+					<hr>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label for="holderName">Forma de Pagamento:</label>
+							<select class="form-control" name="billingType" id="billingType">
+								<option value="">SELECIONE</option>
+								<option value="BOLETO">BOLETO</option>
+								<option value="CREDIT_CARD">CARTÃO DE CRÉDITO</option>
+							</select>
+						</div>
+
+					</div>
+
+					<!-- FORM BLOCO CARTÃO DE CRÉDITO -->
+					<div class="wrap-form-cc" style="display: none;">
+						<h5 class="text-center">Dados do Cartão</h5>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label for="holderName">Nome Completo:</label>
+								<input type="text" id="holderName" name="holderName"
+									class="form-control form-control-sm">
+							</div>
+							<div class="form-group col-md-12">
+								<label for="number">N° Cartão:</label>
+								<input type="text" id="number" name="number" class="form-control form-control-sm">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-4">
+								<label for="expiryMonth">Mês Expiração:</label>
+								<input type="text" id="expiryMonth" name="expiryMonth"
+									class="form-control form-control-sm">
+							</div>
+							<div class="form-group col-md-4">
+								<label for="expiryYear">Ano Expiração:</label>
+								<input type="text" id="expiryYear" name="expiryYear"
+									class="form-control form-control-sm">
+							</div>
+
+							<div class="form-group col-md-4">
+								<label for="ccv">CVV:</label>
+								<input type="text" id="ccv" name="ccv" class="form-control form-control-sm">
+							</div>
+
+						</div>
+
+					</div> <!-- ./wrap-form-cc -->
+				</form>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="alert alert-success alert-dismissible" style="display:none">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				<button type="button" class="btn btn-primary btnBuyPlans">Comprar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Fim Modal -->

@@ -1,13 +1,137 @@
 
 $(function () {
 
+	/* Seleciona a forma de pagamento */
+	$('#billingType').change(function (e) {
+		$('.wrap-form-cc').hide();
+		if ($(this).val() == 'CREDIT_CARD')
+			$('.wrap-form-cc').fadeIn();
+	});
+
+	/* Pegando o valor do plano*/
+	$('button[data-target="#openModalPlans"]').click(function (e) {
+		$('#desvalueplan').val($(this).data('value'));
+	})
+
+	/* Mascarando campos do cartão de crédito */
+	$('#number').mask('0000-0000-0000-0000');
+	$('#expiryMonth').mask('00');
+	$('#expiryYear').mask('0000');
+	$('#ccv').mask('000');
+
+
+	$('#descpf').mask('000.000.000-00', { reverse: true });
+	$('#nrphone').mask('00000000000');
+	$('#desnumber').mask('0000');
+	$('#deszipcode').mask('00000-000');
+
+	/* Submetendo formulário de compra do plano */
+	$('.btnBuyPlans').click(function () {
+
+		if (typeof $('#desperson').val() == 'undefined')
+			return swal("Alerta!", 'Você precisa está logado!', "error");
+
+		if ($('#billingType').val().length == 0)
+			return swal("Alerta!", 'Selecione a forma de pagamento!', "error");
+		$('#form-buy-plans').submit();
+	})
+
+	$('#form-buy-plans').submit(function (e) {
+		e.preventDefault();
+		const data = $(this).serializeArray();
+
+		$.ajax({
+			type: "POST",
+			url: "/payment-plans",
+			data: data,
+			dataType: "json",
+			async: true,
+			beforeSend: function () {
+				console.log('Processando...');
+				load('open');
+				$('.wrap-form-cc').find('input').attr('disabled', true);
+			},
+			success: function (r) {
+				if (r.success == false) {
+					$('.wrap-form-cc').find('input').attr('disabled', false);
+					return swal("Alerta!", r.msg, "error");
+				} else {
+					$('.modal-body .alert').fadeIn().append(`<p>${r.msg}</p>`);
+					if (r.billingType == 'BOLETO') {
+						$('.modal-body .alert').show()
+							.append(`<p class="text-center">
+							<i class="far fa-file"></i> 
+							<a target="_blank" href="${r.urlBoleto}">Visualizar boleto.</a></p>`);
+					}
+					return swal("Sucesso!", r.msg, "success");
+				}
+			},
+			complete: () => {
+				load('close');
+			}
+		});
+	});
+
+	/* Deslogando o usuário */
+	$('#btnLogoutUser').click(function (e) {
+		e.preventDefault();
+		$.post("/logout-user", [], function () { });
+		$('.show-data-user').empty();
+		$('.box-login').show();
+		$('.header-user').hide();
+	});
+
+	/*Logando usuário/cliente*/
+
+	$('#btnLoginPlans').click(function (e) {
+		e.preventDefault();
+		var data = {
+			deslogin: $('#deslogin').val(),
+			despassword: $('#despassword').val()
+		};
+		$.ajax({
+			type: "POST",
+			url: "/logging-in",
+			data: data,
+			dataType: "json",
+			beforeSend: function () {
+				load('open');
+			},
+			success: function (r) {
+				if (r.success == false)
+					return swal("Alerta!", r.msg, "error");
+
+				$('.wrap-form-cc').find('input').attr('disabled', false);
+				var html = '<div class="row">';
+				for (const property in r.data) {
+					if (property == 'desperson' || property == 'desaddress' || property == 'desemail') {
+						html += `<div class="form-group col-md-12">					
+						<input type="text" readonly class="form-control form-control-sm" name='${property}' id='${property}' value="${r.data[property]}"></div>`;
+					} else {
+						html += `<input type="hidden" class="form-control form-control-sm" name='${property}' id='${property}' value="${r.data[property]}">`;
+					}
+				}
+
+				html += "</div>";
+
+				$('.show-data-user').append(html).show();
+				$('.box-login').hide();
+				$('.header-user').show();
+				$('#show-user').html($('#desperson').val());
+			},
+			complete: () => {
+				load('close');
+			}
+		});
+	});
+
 	/* Effect Reveal */
 	window.sr = ScrollReveal({ reset: true });
 
-    sr.reveal('.reveal-video,.reveal-about,#services .reveal-first,#services .reveal-second,.list-cards-plans,.wrap-convenios,.wrap-blogs,.slick-depositions,.slick-parceiros,#faq #accordion,#form-contact,footer .container', {
-        delay: 400,
-        scale: 0
-	});	
+	/* 	sr.reveal('.reveal-video,.reveal-about,#services .reveal-first,#services .reveal-second,.list-cards-plans,.wrap-convenios,.wrap-blogs,.slick-depositions,.slick-parceiros,#faq #accordion,#form-contact,footer .container', {
+			delay: 400,
+			scale: 0
+		}); */
 
 	/* Menu Carousel */
 
@@ -21,29 +145,30 @@ $(function () {
 
 	/* Slick Blog */
 	$('.wrap-blogs ul').slick({
+		centerMode: true,
 		infinite: true,
 		slidesToShow: 3,
 		slidesToScroll: 3,
 		responsive: [
-		{
-			breakpoint: 1048,
-			settings: {
-				centerMode: true,
-				centerPadding: '40px',
-				slidesToShow: 2,
-				arrows:false,
-				dots:true
+			{
+				breakpoint: 1048,
+				settings: {
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 2,
+					arrows: false,
+					dots: true
+				}
+			},
+			{
+				breakpoint: 868,
+				settings: {
+					centerPadding: '40px',
+					slidesToShow: 1,
+					arrows: false,
+					dots: true
+				}
 			}
-		},
-		{
-			breakpoint: 868,
-			settings: {
-				centerPadding: '40px',
-				slidesToShow: 1,
-				arrows:false,
-				dots:true
-			}
-		}
 		]
 	});
 	/* Slick parceiros */
@@ -52,25 +177,25 @@ $(function () {
 		slidesToShow: 3,
 		slidesToScroll: 3,
 		responsive: [
-		{
-			breakpoint: 1048,
-			settings: {
-				centerMode: true,
-				centerPadding: '40px',
-				slidesToShow: 2,
-				arrows:false,
-				dots:true
+			{
+				breakpoint: 1048,
+				settings: {
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 2,
+					arrows: false,
+					dots: true
+				}
+			},
+			{
+				breakpoint: 868,
+				settings: {
+					centerPadding: '40px',
+					slidesToShow: 1,
+					arrows: false,
+					dots: true
+				}
 			}
-		},
-		{
-			breakpoint: 868,
-			settings: {
-				centerPadding: '40px',
-				slidesToShow: 1,
-				arrows:false,
-				dots:true
-			}
-		}
 		]
 	});
 
@@ -84,24 +209,24 @@ $(function () {
 		slidesToScroll: 3,
 		/*centerMode: true,*/
 		responsive: [
-		{
-			breakpoint: 768,
-			settings: {
-				arrows: false,
-				centerMode: true,
-				centerPadding: '40px',
-				slidesToShow: 3
+			{
+				breakpoint: 768,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 1
+				}
 			}
-		},
-		{
-			breakpoint: 480,
-			settings: {
-				arrows: false,
-				centerMode: true,
-				centerPadding: '40px',
-				slidesToShow: 1
-			}
-		}
 		]
 	});
 
@@ -131,10 +256,10 @@ $(function () {
 				}
 			}
 		})
-		.always(() => {
-			$(this).find(':input,select').prop('disabled', false);
-			$(this).find('button').html(val_btn);
-		});
+			.always(() => {
+				$(this).find(':input,select').prop('disabled', false);
+				$(this).find('button').html(val_btn);
+			});
 
 	});
 
@@ -174,6 +299,10 @@ $(function () {
 
 			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 				var target = $(this.hash);
+
+				if (!$(this.hash).length)/* Retorna ao index se não encontrar ids */
+					return location.href = location.href.match(/^http.*?.\w\//m)[0];
+
 				var height = $('.navbar').height();
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 				if (target.length) {
@@ -187,3 +316,4 @@ $(function () {
 	});
 
 });//Fim
+

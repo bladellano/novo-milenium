@@ -1,0 +1,84 @@
+<form id="form-contact">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                class="far fa-user"></i></span></div>
+                    <input type="text" name="name" class="form-control" placeholder="Nome"
+                        required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                class="fas fa-phone"></i></span></div>
+                    <input type="tel" onkeyup="mascara(this,mtel);" name="tel" maxlength="15"
+                        class="form-control" placeholder="Telefone com DDD" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i
+                                class="far fa-envelope"></i></span>
+                    </div>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail"
+                        required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-building"></i></span>
+                </div>
+                <input type="text" name="company" class="form-control"
+                    placeholder="Empresa ou Seu nome">
+            </div>
+        </div>
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- FORMULARIO DE CONTATO -->
+            <div class="form-group">
+                <select name="need" id="" class="form-control" required>
+                    <option value="">O que você precisa?</option>
+                    <option value="Traslado">Traslado</option>
+                    <option value="Cremação">Cremação</option>
+                    <option value="Ornamentação">Ornamentação</option>
+                    <option value="Coroa de flores">Coroa de flores</option>
+                    <option value="Remoção de corpo">Remoção de corpo</option>
+                    <option value="Carro fúnebre">Carro fúnebre</option>
+                    <option value="Ônibus para acompanhate">Ônibus para acompanhate</option>
+                    <option value="Abertura de sepultura">Abertura de sepultura</option>
+                    <option value="Viagem para município">Viagem para município</option>
+                    <option value="Convênios">Convênios</option>
+                    <option value="Planos">Planos</option>
+                    <option value="Outros assuntos">Outros assuntos</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="period" id="" class="form-control" required>
+                    <option value="">Qual período você quer ser contatado?</option>
+                    <option value="De manhã">De manhã</option>
+                    <option value="De tarde">De tarde</option>
+                    <option value="De noite">De noite</option>
+                    <option value="Qualquer período">Qualquer período</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Mensagem:</label>
+                <textarea class="form-control" name="messenger" id="messenger" cols="30"
+                    rows="5"></textarea>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-success" type="submit">ENVIAR</button>
+            </div>
+        </div>
+    </div>
+</form>

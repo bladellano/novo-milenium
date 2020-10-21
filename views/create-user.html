@@ -1,0 +1,151 @@
+<div class="header-page"></div>
+
+<div class="container post">
+
+    <nav aria-label="breadcrumb">
+        <p></p>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cadastro Cliente</li>
+        </ol>
+    </nav>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Mensagens de alert -->
+            {if="$msgError != ''"}
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>{$msgError}</p>
+            </div>
+            {/if}
+
+            {if="$msgSuccess != ''"}
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>{$msgSuccess}</p>
+            </div>
+            {/if}
+            <h3>Cadastro Cliente </h3>
+
+            <form action="/create-user" method="POST" id="form-create-user">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="desperson">Nome Completo:</label>
+                        <input type="text" id="desperson" name="desperson" class="form-control" value="{#$_SESSION['recoversPost']['desperson']#}">
+                    </div>
+                    
+
+                    <div class="form-group col-md-6">
+                        <label for="descpf">Cpf:</label>
+                        <input type="text" id="descpf" name="descpf" class="form-control" value="{#$_SESSION['recoversPost']['descpf']#}">
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="desemail">E-mail:</label>
+                        <input type="email" id="desemail" name="desemail" class="form-control" value="{#$_SESSION['recoversPost']['desemail']#}">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="nrphone">Telefone:</label>
+                        <input type="text" id="nrphone" name="nrphone" class="form-control" value="{#$_SESSION['recoversPost']['nrphone']#}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="deslogin">Login:</label>
+                        <input type="text" id="deslogin" name="deslogin" class="form-control" value="{#$_SESSION['recoversPost']['deslogin']#}">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="despassword">Senha:</label>
+                        <input type="password" id="despassword" name="despassword" class="form-control">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label for="desaddress">Endereço:</label>
+                        <input type="text" id="desaddress" name="desaddress" class="form-control" value="{#$_SESSION['recoversPost']['desaddress']#}">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="descomplement">Completo:</label>
+                        <input type="text" id="descomplement" name="descomplement" class="form-control" value="{#$_SESSION['recoversPost']['descomplement']#}">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="desnumber">Número:</label>
+                        <input type="text" id="desnumber" name="desnumber" class="form-control" value="{#$_SESSION['recoversPost']['desnumber']#}">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="descity">Cidade:</label>
+                        <input type="text" id="descity" name="descity" class="form-control" value="{#$_SESSION['recoversPost']['descity']#}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="desstate">Estado:</label>
+
+                        <select class="form-control" id="desstate" name="desstate">
+                            <option value="">SELECIONE</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                            <option value="EX">Estrangeiro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="descountry">País:</label>
+                        <input type="text" id="descountry" name="descountry" class="form-control" value="BRASIL" readonly value="{#$_SESSION['recoversPost']['descountry']#}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="deszipcode">CEP:</label>
+                        <input type="text" id="deszipcode" name="deszipcode" class="form-control" value="{#$_SESSION['recoversPost']['deszipcode']#}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="desdistrict">Bairro:</label>
+                        <input type="text" id="desdistrict" name="desdistrict" class="form-control" value="{#$_SESSION['recoversPost']['desdistrict']#}">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-success">SALVAR</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div><!-- container -->
