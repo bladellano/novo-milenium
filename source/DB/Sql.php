@@ -8,6 +8,7 @@ class Sql {
 	const USERNAME = DB_SITE['username'];
 	const PASSWORD = DB_SITE['passwd'];
 	const DBNAME = DB_SITE['dbname'];
+	const OPTIONS = DB_SITE['options'];
 
 	private $conn;
 
@@ -17,7 +18,8 @@ class Sql {
 		$this->conn = new \PDO(
 			"mysql:dbname=".Sql::DBNAME.";host=".Sql::HOSTNAME, 
 			Sql::USERNAME,
-			Sql::PASSWORD
+			Sql::PASSWORD,
+			Sql::OPTIONS
 		);
 
 	}
@@ -65,5 +67,3 @@ class Sql {
 	}
 
 }
-
- ?>

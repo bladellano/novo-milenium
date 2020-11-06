@@ -52,7 +52,7 @@ class User extends Model
     {
         $sql = new Sql();
         $results = $sql->select(
-            "CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin, :idcustomer,:descpf)",
+            "CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin, :idcustomer, :descpf)",
             array(
                 ":desperson" => utf8_decode($this->getdesperson()),
                 ":deslogin" => $this->getdeslogin(),

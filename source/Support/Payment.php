@@ -24,7 +24,8 @@ class Payment
      * @param integer $cvv código de segurança
      * @return Payment
      */
-    public function createCard_(string $holder_name, string $card_number, string $expiration_date, int $cvv): Payment
+
+    /*     public function createCard_(string $holder_name, string $card_number, string $expiration_date, int $cvv): Payment
     {
         $this->endPoint = '/cards';
         $this->build = [
@@ -35,7 +36,7 @@ class Payment
         ];
         $this->post();
         return $this;
-    }
+    } */
 
     public function createClient($data)
     {
@@ -60,7 +61,12 @@ class Payment
         $this->post();
         return $this;
     }
-
+    public function listPayments()
+    {
+        $this->endPoint = "/payments";
+        $this->get();
+        return $this;
+    }
     public function listPaymentsWithBoleto()
     {
         $this->endPoint = "/payments?billingType=BOLETO";
@@ -75,7 +81,7 @@ class Payment
     }
     public function withBoleto($customer): Payment
     {
-      
+
         $this->endPoint = "/payments";
         $this->build = [
             "customer" => $customer['customer'],
@@ -148,6 +154,5 @@ class Payment
         curl_close($ch);
     }
     public function delete()
-    {
-    }
+    { }
 }

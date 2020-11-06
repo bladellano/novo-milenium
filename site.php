@@ -229,6 +229,7 @@ $app->get('/', function () {
         $post['d'] = strftime('%b', strtotime($post['created_at']));
         $post['category'] = Blog::getCategory($post['id_articles_categories']);
     }
+    
     $page = new Page();
 
     $page->setTpl("main", [
