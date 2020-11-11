@@ -17,6 +17,10 @@ use \Source\Model\Address;
 use Source\Model\Plans;
 use \Source\Support\Payment;
 
+$app->get('/admin', function () {
+    header('location:'.URL_BASE_ADMIN);
+    exit;
+});
 
 $app->get('/convenios', function () {
     //=================//
