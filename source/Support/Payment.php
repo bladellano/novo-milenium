@@ -16,28 +16,6 @@ class Payment
         $this->apiKey = ASAAS_API_KEY;
     }
 
-    /**
-     * Undocumented function createCard - constrói o cartão
-     * @param string $holder_name nome completo
-     * @param string $card_number nº do cartão
-     * @param string $expiration_date data de expiração do cartão
-     * @param integer $cvv código de segurança
-     * @return Payment
-     */
-
-    /*     public function createCard_(string $holder_name, string $card_number, string $expiration_date, int $cvv): Payment
-    {
-        $this->endPoint = '/cards';
-        $this->build = [
-            'holder_name' => $holder_name,
-            'number' => $card_number,
-            'expiration_date' => $expiration_date,
-            'cvv' => $cvv
-        ];
-        $this->post();
-        return $this;
-    } */
-
     public function createClient($data)
     {
         $this->endPoint = "/customers";

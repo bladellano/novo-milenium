@@ -8,10 +8,10 @@ $(function () {
 			$('.wrap-form-cc').fadeIn();
 	});
 
-	/* Pegando o valor do plano*/
-	$('button[data-target="#openModalPlans"]').click(function (e) {
+	/* Pegando o valor do plano e descrição*/
+	$('.btn-buy').click(function (e) {
 		$('#desvalueplan').val($(this).data('value'));
-		console.log("$(this).data('value') ", $(this).data('value'));
+		$('#desnameplan').val($(this).data('plan'));
 	})
 
 	/* Mascarando campos do cartão de crédito */

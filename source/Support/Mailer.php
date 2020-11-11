@@ -13,8 +13,17 @@ class Mailer
 	const HOST = MAIL_HOST;
 
 	private $mail;
-
-	public function __construct($fromAdress, $fromName, $subject, $tplName, $data = array())
+	/**
+	 * Undocumented constroi objeto para enviar e-mail.
+	 *
+	 * @param [type] $fromAdress e-mail que irá receber.
+	 * @param [type] $fromName nome do cliente/recebedor do e-mail
+	 * @param [type] $subject assunto
+	 * @param [type] $tplName nome do template que será usado.
+	 * @param array $data
+	 * @param boolean $client enviar para o cliente.
+	 */
+	public function __construct($fromAdress, $fromName, $subject, $tplName, $data = array(),$client = false)
 	{
 		$config = array(
 			"tpl_dir" => $_SERVER["DOCUMENT_ROOT"] . "/views/",
@@ -47,10 +56,11 @@ class Mailer
 		$this->mail->Port = 587;
 		$this->mail->SMTPSecure = 'tls';
 		$this->mail->SMTPAuth = true;
-		$this->mail->Username = Mailer::USERNAME;
+		$this->mail->Username = Mailer::USERNAME;		
 		$this->mail->Password = Mailer::PASSWORD;
 		$this->mail->setFrom($fromAdress, $fromName);
 		$this->mail->addAddress(Mailer::USERNAME, Mailer::NAME_FROM);
+		if($client) $this->mail->addAddress($fromAdress, $fromName);
 		$this->mail->Subject = $subject;
 		$this->mail->msgHTML($html);
 		$this->mail->AltBody = 'This is a plain-text message body';

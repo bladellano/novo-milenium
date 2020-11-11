@@ -569,7 +569,7 @@ section iframe {
 #depositions img {
   margin: 0 auto;
   border-radius: 50%;
-  max-width: 98px;
+  max-width: 150px;
   border: 1px solid var(--cor-primaria);
 }
 

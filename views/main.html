@@ -46,7 +46,8 @@
 					<li><a href="/cerimonial"><i class="fas fa-atlas"></i></span>Cerimonial</a></li>
 					<li><a href="/traslados"><i class="fas fa-archway"></i></span>Translados</a></li>
 					<li><a href="/cremacao"><i class="fas fa-blind"></i></span>Cremação</a></li>
-					<li><a href="/acolhimento-psicologico"><i class="fas fa-bed"></i></span>Acolhimento Psicológico</a></li>
+					<li><a href="/acolhimento-psicologico"><i class="fas fa-bed"></i></span>Acolhimento Psicológico</a>
+					</li>
 				</ul>
 			</div>
 
@@ -115,7 +116,8 @@
 					<a class="gallery-work" href="/traslados">
 						<img src="assets/img/traslado.jpg" class="img-responsive">
 						<div class="details">
-							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.</p>
+							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.
+							</p>
 						</div>
 					</a>
 					<h4>Traslados</h4>
@@ -127,7 +129,8 @@
 					<a class="gallery-work" href="/cremacao">
 						<img src="assets/img/cremacao.jpg" class="img-responsive">
 						<div class="details">
-							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.</p>
+							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.
+							</p>
 						</div>
 					</a>
 					<h4>Cremação</h4>
@@ -139,7 +142,8 @@
 					<a class="gallery-work" href="/urnas-ornamentos">
 						<img src="assets/img/urnas.jpg" class="img-responsive">
 						<div class="details">
-							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.</p>
+							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.
+							</p>
 						</div>
 					</a>
 					<h4>Urnas</h4>
@@ -151,7 +155,8 @@
 					<a class="gallery-work" href="/urnas-ornamentos">
 						<img src="assets/img/ornamentacao.jpg" class="img-responsive">
 						<div class="details">
-							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.</p>
+							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.
+							</p>
 						</div>
 					</a>
 					<h4>Ornamentação</h4>
@@ -163,7 +168,8 @@
 					<a class="gallery-work" href="coroa-de-flores">
 						<img src="assets/img/coroa-de-flores.jpg" class="img-responsive">
 						<div class="details">
-							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.</p>
+							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.
+							</p>
 						</div>
 					</a>
 					<h4>Coroa de Flores</h4>
@@ -175,7 +181,8 @@
 					<a class="gallery-work" href="/convenios">
 						<img src="assets/img/convenios.jpg" class="img-responsive">
 						<div class="details">
-							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.</p>
+							<p>Somos especializados em traslados. Abrangemos todo o território da região metropolitana.
+							</p>
 						</div>
 					</a>
 					<h4>Convênios</h4>
@@ -201,8 +208,10 @@
 						<div class="card-plans">
 							<h4>{$value.plan}</h4>
 							<div>
-								<h5>{$value.qtd_people} Pessoas {if="$value.travel == 1"}<i class="fas fa-plane"></i>{/if}</h5>
-								<span>{$value.percentage} % do salário minimo (R${function="formatPrice(1045*($value.percentage/100))"})</span>
+								<h5>{$value.qtd_people} Pessoas {if="$value.travel == 1"}<i
+										class="fas fa-plane"></i>{/if}</h5>
+								<span>{$value.percentage} % do salário minimo
+									(R${function="formatPrice($salario*($value.percentage/100))"})</span>
 							</div>
 							<hr>
 							<ul>
@@ -210,8 +219,12 @@
 								<li> Taxa fixa vitalícia de manutenção</li>
 								<li> Após a quitação da prestação fixa.</li>
 							</ul>
-							<button class="btn btn-primary btn-block" data-value="{function="formatPrice(1045*($value.percentage/100))"}" data-toggle="modal"
-								data-target="#openModalPlans">
+							<button 
+							class="btn btn-primary btn-block btn-buy" 
+							data-value="{function="formatPrice($salario*($value.percentage/100))"}" 
+							data-toggle="modal" 
+							data-target="#openModalPlans" 
+							data-plan="{$value.plan}">
 								CONTRATAR AGORA <i class="fas fa-arrow-right"></i>
 							</button>
 							<small>Pague somente ao vendedor a taxa de entrada, os demais pagamentos só aos cobradores
@@ -219,7 +232,7 @@
 						</div>
 					</li>
 					{/loop}
-							</ul>
+				</ul>
 
 			</div>
 		</div>
@@ -338,18 +351,19 @@
 			<div class="col-md-12 text-center">
 				<div class="slick-depositions">
 					<div class="wrap-depositions">
-						<img src="assets/img/perfil-depoimento.jpg" alt="">
+						<img src="assets/img/antonio-carlos.jpg" alt="">
 						<h3>Antonio Carlos</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit unde, sequi alias. Veniam non
-							deleniti nemo ducimus perferendis quos aspernatur porro laborum et, quae, debitis similique
-							accusamus fugiat quas id.</p>
+						<p>Somente uma empresa que zela pelos seus colaboradores, respeita seus associados e realiza um excelente trabalho pode durar tanto tempo.Paràbens Sociedade Novo Milenium.</p>
 					</div>
 					<div class="wrap-depositions">
-						<img src="assets/img/perfil-depoimento-mulher.jpg" alt="">
-						<h3>Clarice Nobrega</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit unde, sequi alias. Veniam non
-							deleniti nemo ducimus perferendis quos aspernatur porro laborum et, quae, debitis similique
-							accusamus fugiat quas id.</p>
+						<img src="assets/img/fred-santos.jpg" alt="">
+						<h3>Fred Santos</h3>
+						<p>Nosso muito obrigado! Naquele momento de extrema tristeza e dificuldade, a empresa atuou com muito profissionalismo e humanidade. Parabéns ao Evanildo por todo o suporte e cortesia!</p>
+					</div>
+					<div class="wrap-depositions">
+						<img src="assets/img/selma-souza.jpg" alt="">
+						<h3>Selma Souza</h3>
+						<p>Profissionalismo aliado ao preparo no tratamento da situação num momento tão delicado. Sempre com a mesma qualidade, mas evoluindo também.</p>
 					</div>
 				</div>
 			</div>
@@ -405,11 +419,15 @@
 									<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
 										data-parent="#accordion">
 										<div class="card-body text-left">
-											Se o falecimento acontecer em casa, a família tem que ir a delegacia do bairro fazer um Boletim de Ocorrência (BO). Em seguida, os familiares devem ligar para o Instituto Médico Legal (IML) para fazer a remoção do corpo. A Sociedade Novo Milenium só poderá pegar o corpo mediante a Declaração de Óbito.
+											Se o falecimento acontecer em casa, a família tem que ir a delegacia do
+											bairro fazer um Boletim de Ocorrência (BO). Em seguida, os familiares devem
+											ligar para o Instituto Médico Legal (IML) para fazer a remoção do corpo. A
+											Sociedade Novo Milenium só poderá pegar o corpo mediante a Declaração de
+											Óbito.
 										</div>
 									</div>
 								</div>
-					
+
 								<div class="card">
 									<div class="card-header" id="headingThree">
 										<h5 class="mb-0">
@@ -424,11 +442,16 @@
 									<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
 										data-parent="#accordion">
 										<div class="card-body text-left">
-											O primeiro passo é ligar para a Sociedade Novo Milenium informando sobre o falecimento. O segundo passo é a família ter em mãos a Declaração de Óbito e vir até a Sociedade preencher o cadastro de falecimento e, só então, poderemos recolher o material no carro fúnebre e levá-lo até o hospital, IML ou laboratório para que possa ser realizado o trabalho de conservação do corpo para o velório.								
+											O primeiro passo é ligar para a Sociedade Novo Milenium informando sobre o
+											falecimento. O segundo passo é a família ter em mãos a Declaração de Óbito e
+											vir até a Sociedade preencher o cadastro de falecimento e, só então,
+											poderemos recolher o material no carro fúnebre e levá-lo até o hospital, IML
+											ou laboratório para que possa ser realizado o trabalho de conservação do
+											corpo para o velório.
 										</div>
 									</div>
 								</div>
-								
+
 							</div>
 
 						</div> <!-- /.col-lg-6 -->
@@ -436,7 +459,7 @@
 						<div class="col-lg-12">
 
 							<div id="accordion">
-						<!--
+								<!--
 								<div class="card">
 									<div class="card-header" id="headingFive">
 										<h5 class="mb-0">

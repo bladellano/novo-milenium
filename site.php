@@ -23,7 +23,7 @@ $app->get('/convenios', function () {
     //====CONVÊNIOS====//
     //=================//
     $search = (isset($_GET['search'])) ? $_GET['search'] : "";
-    $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+    $page = (isset($_GET['page'])) ? (int) $_GET['page'] : 1;
     if ($search != '') {
         $pagination = Convenio::getPageSearch(trim($search), $page);
     } else {
@@ -60,7 +60,7 @@ $app->post('/payment-plans', function () {
         "billingType" => $_POST['billingType'],
         "dueDate" => date("Y-m-d"),
         "value" => $_POST['desvalueplan'],
-        "description" => "",
+        "description" => $_POST['desnameplan'],
         "externalReference" => md5(uniqid()),
         "postalService" => false //Quando Boleto.
     ];
@@ -194,11 +194,22 @@ $app->post('/create-user', function () {
         "desdistrict" => $_POST['desdistrict'],
         "idperson" => $idPerson,
     ];
-
     $address->setData($addressUser);
     $address->save();
 
     //ENVIAR EMAIL PARA O CLIENTE;
+    $mailer = new Mailer(
+        $_POST["desemail"],
+        $_POST["desperson"],
+        "Dados de Cadastro do Cliente", //Assunto
+        "email-user-password", //Template
+        $_POST, //data
+        true
+    );
+
+    if (!$mailer->send())
+        die(json_encode(['success' => false, 'msg' => 'Problemas ao enviar o e-mail!']));
+
     User::setSuccess('Cadastro realizado com sucesso.');
     unset($_SESSION['recoversPost']);
     header("Location: /cadastro-cliente");
@@ -224,18 +235,21 @@ $app->get('/', function () {
     $plans = Plans::lisAll();
     $convenios = Convenio::lisAll();
 
+    $salario = 1045;
+
     foreach ($posts as &$post) {
         $post['m'] = (new DateTime($post['created_at']))->format("m");
         $post['d'] = strftime('%b', strtotime($post['created_at']));
         $post['category'] = Blog::getCategory($post['id_articles_categories']);
     }
-    
+
     $page = new Page();
 
     $page->setTpl("main", [
         'posts' => $posts,
         'plans' => $plans,
         'convenios' => $convenios,
+        'salario' => $salario,
         'scripts' => ['neurologic.js']
     ]);
 });
