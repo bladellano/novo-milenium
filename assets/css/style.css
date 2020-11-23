@@ -731,7 +731,7 @@ footer ul li.efeito-hr a {
 .work a .details {
   text-align: center;
   position: absolute;
-  bottom: -90px;
+  bottom: -80px;
   background: var(--cor-secundaria);
   width: 100%;
   padding: 5px 15px;
@@ -768,6 +768,7 @@ footer ul li.efeito-hr a {
 
 .work .gallery-work {
   width: 100%;
+  height: 234px;
 }
 
 .work h4 {
@@ -1099,6 +1100,9 @@ footer .fab,
   }
   .btn-whatsapp {
     bottom: 120px;
+  }
+  .nld-chatbot{
+    display: none;
   }
   .section-title p {
     margin: 10px;

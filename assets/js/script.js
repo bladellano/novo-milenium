@@ -175,16 +175,17 @@ $(function () {
 					centerPadding: '40px',
 					slidesToShow: 2,
 					arrows: false,
-					dots: true
+					// dots: true
 				}
 			},
 			{
 				breakpoint: 868,
 				settings: {
-					centerPadding: '40px',
+					infinite: true,
 					slidesToShow: 1,
+					slidesToScroll: 1,
+					dots: true,
 					arrows: false,
-					dots: true
 				}
 			}
 		]
