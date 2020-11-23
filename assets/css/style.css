@@ -1051,6 +1051,7 @@ footer .fab,
 /*===================*/
 
 @media (min-width: 768px) {
+
   header .intro-text .intro-heading {
     font-weight: 500;
     font-size: 34px;
@@ -1095,6 +1096,9 @@ footer .fab,
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
+  }
+  .btn-whatsapp {
+    bottom: 120px;
   }
   .section-title p {
     margin: 10px;
