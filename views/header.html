@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     {if="$_SERVER['REMOTE_ADDR'] != '127.0.0.1'"}
-     <!-- Global site tag (gtag.js) - Google Analytics -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180989724-1"></script>
-     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
- 
-     gtag('config', 'UA-180989724-1');
-     </script>     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180989724-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180989724-1');
+    </script>
     {/if}
-   
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>Sociedade Novo Milenium | (91) 3238-0896</title>
-	
-	<meta name="author" content="Caio Dellano">
-    <meta name="copyright" content="© 2020 Associação Novo Milenium" />    
-    <meta name="description" content="Veja informações, telefones, endereços, vagas de vendedor, cerimonial, velório, traslados e muito mais. Novo Milenium | A cidade em detalhes | Funerárias em Belém, PA | Sociedade Novo Milenium em Belém, PA | Novo Milenium" />
-    <meta name="keywords" content="novo milenium, contratar planos, convênios novo milenium, disk novo milenium, plantão 24h, divulgação, aceitamos cartões de crédito, convênios, planos novo milenium, novo milenium belém, pa, sociedade funeraria novo milenium, sociedade novo milenium em ananindeua, pa, empresas em belém, pa, encontre em belém, pa, informações em belém, pa, novo milenium" />
-    <meta name="robots" content="index, follow" />
 
-	<link rel="shortcut icon" href="/assets/img/favicon.png" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {$head}
 
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">    
+    <link rel="shortcut icon" href="/assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/fontawesome/css/all.css">
     <link rel="stylesheet" href="/bower_components/lightbox2/dist/css/lightbox.min.css">
     <link rel="stylesheet" href="/bower_components/slick-carousel/slick/slick.css">
@@ -40,30 +35,30 @@
 
 <body id="page-top">
 
-     <!-- Load Facebook SDK for JavaScript -->
- <div id="fb-root"></div>
- <script>
-     window.fbAsyncInit = function () {
-         FB.init({
-             xfbml: true,
-             version: 'v9.0'
-         });
-     };
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v9.0'
+            });
+        };
 
-     (function (d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) return;
-         js = d.createElement(s); js.id = id;
-         js.src = 'https://connect.facebook.net/pt_BR/sdk/xfbml.customerchat.js';
-         fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));</script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/pt_BR/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
- <!-- Your Chat Plugin code -->
- <div class="fb-customerchat" attribution=setup_tool page_id="106775047827088" theme_color="#0084ff"
-     logged_in_greeting="Oi! Como podemos te ajudar?" logged_out_greeting="Oi! Como podemos te ajudar?">
- </div>
- <!-- Load Facebook SDK for JavaScript - FIM -->
-    
+    <!-- Your Chat Plugin code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="106775047827088" theme_color="#0084ff"
+        logged_in_greeting="Oi! Como podemos te ajudar?" logged_out_greeting="Oi! Como podemos te ajudar?">
+    </div>
+    <!-- Load Facebook SDK for JavaScript - FIM -->
+
     <div class="banner-plantao d-none d-sm-block">
         Plantão<br>24h
     </div>
@@ -82,20 +77,21 @@
 
                 <img src="/assets/img/logo-novo-milenium-pb-sm.png" alt="Logo" class="d-lg-none d-md-none">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav navbar-right ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#page-top">Home</a>
-                    </li>		
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">Sobre</a>
-                    </li>		
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Serviços</a>
-                    </li>	
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#plans">Planos</a>
                     </li>
@@ -104,10 +100,10 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#depositions">Depoimentos</a>
-                    </li>                     
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#partnerships">Parceiros</a>
-                    </li>                   
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#faq">FAQ</a>
                     </li>
@@ -119,4 +115,3 @@
             </div>
         </div><!-- container -->
     </nav><!-- navbar -->
-    
